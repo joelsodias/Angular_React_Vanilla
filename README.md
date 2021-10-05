@@ -29,6 +29,7 @@ xdg-open http://localhost:3000
 # Setup and Run Vanilla app
 
 cd ~/testproject/vanilla-test-app
+npm i serve
 npx serve
 
 
