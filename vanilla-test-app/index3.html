@@ -1,0 +1,65 @@
+<!--
+    https://coderpad.io/blog/intro-to-web-components-vanilla-js/
+-->
+<html>
+  <head>
+
+    <!-- Render string array -->
+    <script>
+      class MyComponent extends HTMLElement {
+        connectedCallback() {
+          this.render();
+        }
+        
+        static get observedAttributes() {
+          return ['todos'];
+        }
+        
+        attributeChangedCallback(name, oldValue, newValue) {
+          this.render();
+        }
+
+        render() {
+          const todos = this.attributes.todos.value || '';
+          this.innerHTML = `<h1>${todos}</h1>`;          
+        }
+        
+      }
+    
+      customElements.define('my-component', MyComponent);
+    </script>
+    
+    
+    <!-- Form event handler -->
+    <script>
+      var todoList = [];
+      
+      window.onload = function() {
+        const formEl = document.querySelector('#todoForm');
+        const inputEl = document.querySelector('#todoName');
+        formEl.addEventListener('submit', e => {
+          e.preventDefault();          
+          todoList.push(inputEl.value);
+          inputEl.value = '';
+          changeElement();
+        })
+      }
+    </script>
+    
+    <!-- Update custom element attributes -->   
+    <script>    
+      function changeElement() {
+        const compEl = document.querySelector('#mycomp');
+        compEl.attributes.todos.value = todoList;      
+      }
+    </script>
+    
+  </head>
+  <body>
+    <form id="todoForm">
+      <input id="todoName" type="text"/>
+      <button>Toggle</button>
+    </form>
+    <my-component id="mycomp" todos="[]"></my-component>
+  </body>
+</html>
