@@ -29,6 +29,6 @@ xdg-open http://localhost:3000
 # Setup and Run Vanilla app
 
 cd ~/testproject/vanilla-test-app
-
+npx serve
 
 
