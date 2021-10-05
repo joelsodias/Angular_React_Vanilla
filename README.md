@@ -1,2 +1,2 @@
-# React_Angular_Vue
+# Angular_React_Vanilla
 Compare three technologies
