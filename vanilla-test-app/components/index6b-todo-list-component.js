@@ -1,6 +1,7 @@
 class ToDoListComponent extends HTMLElement {
     
     connectedCallback() {
+      console.log("connectedCallback()");
       this.render();
     }
     
@@ -9,18 +10,19 @@ class ToDoListComponent extends HTMLElement {
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
+      console.log("attributeChangedCallback()");
       //this.clear();
       this.render();
     }
-
+    
     clear() {
-      for (const child of this.children) {
-        child.remove();
-      }
+      this.innerHTML="";
     }
     
     render() {
+      console.log("render():");
       this.clear();
+
       
       // Create list element
       const todosArr = JSON.parse(this.attributes.todos.value || '[]');

@@ -1,57 +1,71 @@
-<!--
-    https://coderpad.io/blog/intro-to-web-components-vanilla-js/
--->
 <html>
   <head>
-    
-    <!-- Custom element -->
-    
-    <script>
-      class MyComponent extends HTMLElement {
-        connectedCallback() {
-          console.log("I am connecting");
-          this.innerHTML = `<h1>Hello world</h1>`;
-        }
-        
-        disconnectedCallback() {
-          console.log("I am leaving");
-        }
-      }
-    
-      customElements.define('my-component', MyComponent);
-    </script>
-    
-    <!-- Show/hide logic -->
+    <!-- Render object array as "ul", passing fn to checkbox change event -->
+    <script src="components/index6b-todo-list-component.js"></script>
     
     <script>
-      var isShown = false;
+    var currTodoId = 0;
+      var todoList = [];
       
-      window.onload = (event) => {
+      function toggleTodoItem(todoId) {
+        // This is mutable
+        thisTodo = todoList.find(todo => todo.id == todoId);
+        thisTodo.completed = !thisTodo.completed;
         changeElement();
-      };
+      }
       
+      window.onload = function() {
+        const formEl = document.querySelector('#todoForm');
+        const inputEl = document.querySelector('#todoName');
+        formEl.addEventListener('submit', e => {
+          e.preventDefault();
+          const todoId = currTodoId++;
+          todoList.push({
+            name: inputEl.value,
+            completed: false,
+            id: todoId,
+
+            // This fn will disappear during `JSON.stringify`
+            //     as it cannot be serialized
+            onChange: () => {
+              toggleTodoItem(todoId)
+            }
+          });
+          inputEl.value = '';
+          changeElement();
+        })
+      }
+      
+      function toggleAll() {
+        todoList = todoList.map(todo => ({...todo, completed: !todo.completed}));
+        changeElement();
+      }
+
       function changeElement() {
-        isShown = !isShown;
-        const containEl = document.querySelector('#container');
-        if (isShown) {
-          // Append
-          const newComp = document.createElement('my-component');
-          containEl.append(newComp);
-        } else {
-          // Remove all children
-          for (const child of containEl.children) {
-            child.remove();
-          }
-        }
-      }  
+        console.log(todoList);
+        const compEl = document.querySelector('#mycomp-'+document.querySelector('#list-selector').value);
+        compEl.attributes.todos.value = JSON.stringify(todoList);
+      }
     </script>
+    
+    
+
     
   </head>
-  
-  <!-- HTML -->
-  
   <body>
-    <button onclick="changeElement()">Toggle</button>
-    <div id="container"></div>
+    <h1>Vanilla Custom Elements (Web Components)</h1>
+    <form id="todoForm">
+      <select id="list-selector">
+        <option value="list1">Lista 1</option>
+        <option value="list2">Lista 2</option>
+      </select><br/>
+      <input id="todoName" type="text"/>
+      <button>Add</button>
+    </form>
+    <button onclick="toggleAll()">Toggle all</button>
+
+    <todo-list-component id="mycomp-list1" caption="Lista 1" todos="[]"></todo-list-component>
+
+    <!--todo-list-component id="mycomp-list2" caption="Lista 2" todos="[]"></todo-list-component-->
   </body>
 </html>
