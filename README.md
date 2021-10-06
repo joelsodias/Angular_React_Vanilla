@@ -2,15 +2,18 @@
 This project compares three types of component oriented technologies: Angular, React and Vanilla (pure JS)
 
 # Step 1: Install Global Requirements (Linux):
-- Git         => command:   sudo apt install git 
-- NodeJs      => command:   sudo apt install nodejs  
-- Yarn        => command:   sudo apt install yarn
+- Git         
+     command:   sudo apt install git 
+- NodeJs      
+     command:   sudo apt install nodejs  
+- Yarn        
+     command:   sudo apt install yarn
 
 # Step 2: Download Sources (git clone repository)
 
 mkdir ~/testproject
 cd ~/testproject
-git clone https://github.com/joelsodias/Angular_React_Vanilla.git
+git clone https://github.com/joelsodias/angular_react_vanilla.git
 
 # Setup and Run Angular App
 
