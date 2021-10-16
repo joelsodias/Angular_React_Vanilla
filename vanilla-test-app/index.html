@@ -1,71 +1,110 @@
-<html>
-  <head>
-    <!-- Render object array as "ul", passing fn to checkbox change event -->
-    <script src="components/index6b-todo-list-component.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAOC Vanilla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+
+<body>
+
+<div style="display: flex; flex-wrap: wrap;">
+
+    <profile-card 
+    imageurl="https://media-exp1.licdn.com/dms/image/C5603AQESWlmCKJoGqQ/profile-displayphoto-shrink_200_200/0/1517009258799?e=1639612800&v=beta&t=r22eMh2a4FzvnF9_wygYszEcqX3JpgEV2CcQ6MvOfM4"
+    facebookurl="https://www.facebook.com/fernanda.krueldenardinwalker"
     
-    <script>
-    var currTodoId = 0;
-      var todoList = [];
-      
-      function toggleTodoItem(todoId) {
-        // This is mutable
-        thisTodo = todoList.find(todo => todo.id == todoId);
-        thisTodo.completed = !thisTodo.completed;
-        changeElement();
-      }
-      
-      window.onload = function() {
-        const formEl = document.querySelector('#todoForm');
-        const inputEl = document.querySelector('#todoName');
-        formEl.addEventListener('submit', e => {
-          e.preventDefault();
-          const todoId = currTodoId++;
-          todoList.push({
-            name: inputEl.value,
-            completed: false,
-            id: todoId,
+    backgroundcolor="#FBFBFB"
+    decorationcolor="#D701BA"
+    textcolor="#444"
+    personname="Fernanda Walker"
+    jobname="Teacher"
+    ></profile-card>
 
-            // This fn will disappear during `JSON.stringify`
-            //     as it cannot be serialized
-            onChange: () => {
-              toggleTodoItem(todoId)
-            }
-          });
-          inputEl.value = '';
-          changeElement();
-        })
-      }
-      
-      function toggleAll() {
-        todoList = todoList.map(todo => ({...todo, completed: !todo.completed}));
-        changeElement();
-      }
+    <profile-card 
+      imageurl="https://avatars.githubusercontent.com/u/407522?v=4"
+      facebookurl="https://www.facebook.com/joelsodias"
+      twitterurl="https://twitter.com/joelsodias"
+      linkedinurl = "https://www.linkedin.com/in/joelsodias/?locale=pt_BR"
+      githuburl="https://github.com/joelsodias"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="#4C0BFE"
+      textcolor="#444"
+      personname="Joelso Dias"
+      jobname="Student"
+      ></profile-card>
 
-      function changeElement() {
-        console.log(todoList);
-        const compEl = document.querySelector('#mycomp-'+document.querySelector('#list-selector').value);
-        compEl.attributes.todos.value = JSON.stringify(todoList);
-      }
-    </script>
-    
-    
+      <profile-card 
+      imageurl="https://source.unsplash.com/300x300/?face&1"
+      facebookurl="#"
+      twitterurl="#"
+      linkedinurl = "#"
+      githuburl="#"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="random"
+      textcolor="#444"
+      personname="Randon Person #1"
+      jobname="Student"
+      ></profile-card>
 
-    
-  </head>
-  <body>
-    <h1>Vanilla Custom Elements (Web Components)</h1>
-    <form id="todoForm">
-      <select id="list-selector">
-        <option value="list1">Lista 1</option>
-        <option value="list2">Lista 2</option>
-      </select><br/>
-      <input id="todoName" type="text"/>
-      <button>Add</button>
-    </form>
-    <button onclick="toggleAll()">Toggle all</button>
+      <profile-card 
+      imageurl="https://source.unsplash.com/300x300/?face&2"
+      facebookurl="#"
+      twitterurl="#"
+      linkedinurl = "#"
+      githuburl="#"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="random"
+      textcolor="#444"
+      personname="Randon Person #2"
+      jobname="Student"
+      ></profile-card>
 
-    <todo-list-component id="mycomp-list1" caption="Lista 1" todos="[]"></todo-list-component>
+      <profile-card 
+      imageurl="https://source.unsplash.com/300x300/?face&3"
+      facebookurl="#"
+      twitterurl="#"
+      linkedinurl = "#"
+      githuburl="#"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="random"
+      textcolor="#444"
+      personname="Randon Person #3"
+      jobname="Student"
+      ></profile-card>
 
-    <!--todo-list-component id="mycomp-list2" caption="Lista 2" todos="[]"></todo-list-component-->
-  </body>
+      <profile-card 
+      imageurl="https://source.unsplash.com/300x300/?face&4"
+      facebookurl="#"
+      twitterurl="#"
+      linkedinurl = "#"
+      githuburl="#"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="random"
+      textcolor="#444"
+      personname="Randon Person #4"
+      jobname="Student"
+      ></profile-card>
+
+      <profile-card 
+      imageurl="https://source.unsplash.com/300x300/?face&5"
+      facebookurl="#"
+      twitterurl="#"
+      linkedinurl = "#"
+      githuburl="#"
+      backgroundcolor="#FBFBFB"
+      decorationcolor="random"
+      textcolor="#444"
+      personname="Randon Person #5"
+      jobname="Student"
+      ></profile-card>
+
+</div>    
+  <script type="module" src="components/profile-card/profile-card.js"></script>
+</body>
 </html>

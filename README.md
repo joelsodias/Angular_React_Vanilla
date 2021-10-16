@@ -9,27 +9,27 @@ This project compares three types of component oriented technologies: Angular, R
 * Yarn        
      ```sudo apt install yarn```
 
-# Step 2: Download Sources (git clone repository)
+# Step 2: Download Sources (git clone repository on Linux)
 ```
 mkdir ~/anreva
 cd ~/anreva
 git clone https://github.com/joelsodias/angular_react_vanilla.git ~/anreva
 ```
-# Setup and Run Angular App
+# Setup and Run Angular App (Linux)
 ```
 cd ~/anreva/angular-test-app
 npm install
 ng serve
 xdg-open http://localhost:4200
 ```
-# Setup and Run React app
+# Setup and Run React app (Linux)
 ```
 cd ~/anreva/react-test-app
 npm install
 npm start
 xdg-open http://localhost:3000
 ```
-# Setup and Run Vanilla app
+# Setup and Run Vanilla app (Linux)
 ```
 cd ~/anreva/vanilla-test-app
 npm i serve
