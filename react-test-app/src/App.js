@@ -29,7 +29,7 @@ function App() {
           backgroundcolor="#FBFBFB"
           decorationcolor="random"
           textcolor="#444"
-          personname="Ramdom Person #1"
+          personname="Random Person #1"
           jobtitle="Student"
         ></ProfileCard>
 
@@ -42,7 +42,7 @@ function App() {
           backgroundcolor="#FBFBFB"
           decorationcolor="random"
           textcolor="#444"
-          personname="Ramdom Person #2"
+          personname="Random Person #2"
           jobtitle="Student"
         ></ProfileCard>
 
@@ -55,7 +55,7 @@ function App() {
           backgroundcolor="#FBFBFB"
           decorationcolor="random"
           textcolor="#444"
-          personname="Ramdom Person #3"
+          personname="Random Person #3"
           jobtitle="Student"
         ></ProfileCard>
 
@@ -68,7 +68,7 @@ function App() {
           backgroundcolor="#FBFBFB"
           decorationcolor="random"
           textcolor="#444"
-          personname="Ramdom Person #4"
+          personname="Random Person #4"
           jobtitle="Student"
         ></ProfileCard>
 
@@ -81,7 +81,7 @@ function App() {
           backgroundcolor="#FBFBFB"
           decorationcolor="random"
           textcolor="#444"
-          personname="Ramdom Person #5"
+          personname="Random Person #5"
           jobtitle="Student"
         ></ProfileCard>
       </div>
