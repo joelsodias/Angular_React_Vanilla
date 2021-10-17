@@ -1,6 +1,8 @@
 # ANREVA - Angular React Vanilla
 This project compares three types of component oriented technologies: Angular, React and Vanilla (pure JS)
 
+All three projects implement the very same fancy profile component with CSS animations and with custom attributes and "random" decoration color functionality.   
+
 # Step 1: Install Global Requirements (Linux):
 * Git         
      ```sudo apt install git```
