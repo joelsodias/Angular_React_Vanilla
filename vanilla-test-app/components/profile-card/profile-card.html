@@ -4,9 +4,17 @@
   </div>
   <div class="team-content">
     <h3 class="name">{{ attr.personname }}</h3>
-    <h4 class="title">{{ attr.jobname }}</h4>
+    <h4 class="title">{{ attr.jobtitle }}</h4>
   </div>
   <ul class="social">
+
+    {{ (e => { 
+       
+      return (e) ? `
+      <li>
+        <a href="{{ e }}" class="fa fa-globe" aria-hidden="true"></a>
+      </li>
+      ` : '' })( attr.websiteurl )}}
 
     <!-- check for personal web site attribute -->
     {{ (e => { return (e) ? `

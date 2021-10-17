@@ -15,7 +15,6 @@ customElements.define(
 
       if (this.attributes["decorationcolor"].value == "random") { this.attributes["decorationcolor"].value = this.randomcolor() } 
 
-
     }
 
     // Called when element is inserted in DOM

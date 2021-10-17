@@ -1,14 +1,4 @@
-
-
-
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-
-  :host {
-    --decorationcolor: {{attr.decorationcolor}};
-    --backgroundcolor: {{attr.backgroundcolor}};
-    --textcolor: {{attr.textcolor}};
-  } 
-
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .our-team {
     padding: 30px 0 40px;
@@ -77,6 +67,7 @@
   
   .our-team:hover .picture img {
     box-shadow: 0 0 0 14px var( --backgroundcolor );
+    /*transform: scale(0.7);*/
     transform: scale(1.5);
   }
   
